@@ -1,0 +1,113 @@
+p,
+h1,
+h4 {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding-left: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: center;
+}
+.card {
+  width: 18rem;
+  max-width: 100%;
+  border: 1px solid #80808085;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.card_img_response_wrapper {
+  max-height: 23rem;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.card_img_response,
+.card_img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.card-wrapper {
+  padding: 1rem;
+}
+.wrapper {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+.card_img_wrapper {
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  overflow: hidden;
+}
+.card_name_wrapper {
+  display: flex;
+  gap: 5px;
+}
+.icon {
+  fill: rgb(71, 134, 245);
+}
+
+.wrapper_response {
+  position: relative;
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+}
+.card_button {
+  position: absolute;
+  bottom: 0;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: grey;
+  height: max-content;
+}
+.card_user_name {
+}
+.card_stars {
+}
+.card_response {
+}
+.card_data {
+  text-align: end;
+  margin-top: 1rem;
+}
+
+.rating {
+  --percent: calc(var(--rating) / 5 * 100%);
+  line-height: 1;
+  display: inline-block;
+  font-size: 1.5rem;
+}
+
+.rating::before {
+  content: '★★★★★';
+  letter-spacing: 1px;
+  background: linear-gradient(
+    90deg,
+    #ff8100c4 var(--percent),
+    #80808045 var(--percent)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
