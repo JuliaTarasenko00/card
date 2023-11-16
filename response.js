@@ -5,7 +5,7 @@ export const responses = [
     photoUser:
       'https://celes.club/uploads/posts/2022-11/1667297426_1-celes-club-p-kartinka-na-zadnii-fon-oboi-1.jpg',
     userName: 'User Name',
-    rating: 5,
+    rating: 1.5,
     response:
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum minus sequi dolor, sit quo enim, laboriosam corporis fugit dolore, voluptatem assumenda! Repellat distinctio quia assumenda hic maxime sit quod sed. Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias commodi dicta adipisci labore maxime a dolore quos minus quasi temporibus ullam officia magni id ipsum, sequi repellendus placeat, velit delectus! Temporibus quas, praesentium nemo, architecto rerum, quisquam eos illum ad odio recusandae commodi impedit ullam voluptatem facere. Unde praesentium blanditiis delectus accusamus amet, nihil iusto molestias similique adipisci recusandae odio!',
     data: '15.11.2023',

@@ -1,6 +1,6 @@
 import { responses } from './response.js';
 
-const section = document.querySelector('.section');
+const card = document.querySelector('.card');
 
 let responseText = '';
 let seeMoreButton = '';
@@ -17,10 +17,10 @@ function renderResponses() {
           '<button type="button" class="card_button">See more</button>';
       }
 
-      return `<div class="card">
+      return `<li class="card_item">
         <div class="card_img_response_wrapper">
           <img
-            src=${response.photoProduct}
+            src="${response.photoProduct}"
             alt="response"
             width="300"
             height="300"
@@ -32,7 +32,7 @@ function renderResponses() {
           <div class="wrapper">
             <div class="card_img_wrapper">
               <img
-                src=${response.photoUser}
+                src="${response.photoUser}"
                 alt="User Name"
                 width="50"
                 height="50"
@@ -41,34 +41,31 @@ function renderResponses() {
               />
             </div>
             <div>
-                <div class="card_name_wrapper">
-                  <h4 class="card_user_name">${response.userName}</h4>
-                  <svg class="icon" width="20" height="20">
-                    <use href="./img/symbol-defs.svg#icon-check"></use>
-                  </svg>
-                </div>
-                <div class="rating" style="--rating:${response.rating};"></div></div>
+              <div class="card_name_wrapper">
+                <h4 class="card_user_name">${response.userName}</h4>
+                <svg class="icon" width="20" height="20">
+                  <use href="./img/symbol-defs.svg#icon-check"></use>
+                </svg>
+              </div>
+              <div class="rating" style="--rating:${response.rating};"></div>
             </div>
-        <div class="wrapper_response" >
-              <p class="card_response"data-full-text="${response.response}">
-                ${responseText}
-              </p>
-             ${seeMoreButton}
+          </div>
+          <div class="wrapper_response">
+            <p class="card_response" data-full-text="${response.response}">
+              ${responseText}
+            </p>
+            ${seeMoreButton}
+          </div>
+          <p class="card_data">${response.data}</p>
         </div>
-          <p class="card_data" >${response.data}</p>
-        </div>
-      </div>`;
+      </li>`;
     })
     .join('');
 
-  section.insertAdjacentHTML('afterbegin', markup);
+  card.insertAdjacentHTML('afterbegin', markup);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const section = document.querySelector('.section');
-
-  section.addEventListener('click', onClickButton);
-});
+card.addEventListener('click', onClickButton);
 
 function onClickButton(ev) {
   const element = ev.target;
