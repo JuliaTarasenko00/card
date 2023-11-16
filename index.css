@@ -96,7 +96,11 @@ body {
   overflow: hidden;
 }
 .card_img_response_wrapper {
-  display: none;
+  max-height: 14rem;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 .card_img_response,
 .card_img {
@@ -195,10 +199,6 @@ body {
 
   .card_img_response_wrapper {
     max-height: 16rem;
-    height: 100%;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
   }
 
   .button_arrow_left {
