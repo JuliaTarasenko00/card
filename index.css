@@ -77,7 +77,7 @@ body {
   grid-auto-flow: column;
   grid-template-columns: 100%;
   align-items: center;
-  overflow-x: auto;
+  overflow-x: hidden;
   scroll-snap-type: x mandatory;
   justify-items: center;
   scroll-behavior: smooth;
