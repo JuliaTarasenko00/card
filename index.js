@@ -50,13 +50,15 @@ function renderResponses() {
               <div class="rating" style="--rating:${response.rating};"></div>
             </div>
           </div>
-          <div class="wrapper_response">
-            <p class="card_response" data-full-text="${response.response}">
-              ${responseText}
-            </p>
-            ${seeMoreButton}
+          <div>
+            <div class="wrapper_response">
+                <p class="card_response" data-full-text="${response.response}">
+                  ${responseText}
+                </p>
+                ${seeMoreButton}
+              </div>
+              <p class="card_data">${response.data}</p>
           </div>
-          <p class="card_data">${response.data}</p>
         </div>
       </li>`;
     })
@@ -72,13 +74,16 @@ function onClickButton(ev) {
   if (element.classList.contains('card_button')) {
     const responseTextElement = element.previousElementSibling;
     const fullText = responseTextElement.getAttribute('data-full-text');
+    const item = element.closest('.card_item');
 
     if (element.textContent === 'See more') {
       responseTextElement.textContent = fullText;
       element.textContent = 'See less';
+      item.style.setProperty('--height', 'auto');
     } else {
       responseTextElement.textContent = fullText.substring(0, 185) + '...';
       element.textContent = 'See more';
+      item.style.setProperty('--height');
     }
   }
 }

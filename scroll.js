@@ -4,21 +4,49 @@ const firstCardWidth = card.querySelector('.card_item').offsetWidth;
 const cardChildren = [...card.children];
 
 let isDragging = false;
-let cardPerView = Math.random(card.offsetWidth / firstCardWidth);
+const cardPerView = Math.random(card.offsetWidth / firstCardWidth);
 
 const button_left = document.createElement('button');
 button_left.type = 'button';
-button_left.className = 'button_arrow_left button';
+button_left.className = 'button_arrow_left disabled';
 
 const button_right = document.createElement('button');
 button_right.type = 'button';
 button_right.className = 'button_arrow_right';
 
+const svgLeft = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+svgLeft.classList.add('icon_arrow');
+svgLeft.classList.add('disabled');
+
+const useLeft = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+useLeft.setAttributeNS(
+  'http://www.w3.org/1999/xlink',
+  'xlink:href',
+  './img/symbol-defs.svg#icon-circle-left'
+);
+
+const svgRight = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+svgRight.classList.add('icon_arrow');
+
+const useRight = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+useRight.setAttributeNS(
+  'http://www.w3.org/1999/xlink',
+  'xlink:href',
+  './img/symbol-defs.svg#icon-circle-right'
+);
+
+svgLeft.append(useLeft);
+svgRight.append(useRight);
+
+button_right.append(svgRight);
+button_left.append(svgLeft);
+
 carousel.prepend(button_left);
 carousel.append(button_right);
 
+button_left.setAttribute('disabled', 'disabled');
+
 carousel.addEventListener('click', onClickCarousel);
-card.addEventListener('scroll', scrollCard);
 
 const buttonLeft = document.querySelector('.button_arrow_left');
 const buttonRight = document.querySelector('.button_arrow_right');
@@ -31,16 +59,8 @@ function onClickCarousel(ev) {
   }
   if (element.classList.contains('button_arrow_right')) {
     buttonLeft.removeAttribute('disabled');
-    buttonLeft.classList.remove('button');
+    buttonLeft.classList.remove('disabled');
+    svgLeft.classList.remove('disabled');
     return (card.scrollLeft += firstCardWidth + 20);
-  }
-}
-
-function scrollCard() {
-  const length = card.scrollWidth - card.offsetWidth;
-  if (card.scrollLeft === 0) {
-    buttonLeft.classList.toggle('button');
-  } else if (Math.ceil(card.scrollLeft) === length) {
-    buttonRight.classList.toggle('button');
   }
 }
