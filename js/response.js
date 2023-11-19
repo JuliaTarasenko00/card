@@ -45,7 +45,7 @@ export const responses = [
   },
   {
     photoProduct:
-      'https://i.pinimg.com/736x/70/79/8e/70798e171621ddbdef745426713bae1d.jpg',
+      'https://i.pinimg.com/236x/0e/bd/26/0ebd262c4b7f69f7ec915dbd8509328f.jpg',
     photoUser:
       'https://celes.club/uploads/posts/2022-11/1667297426_1-celes-club-p-kartinka-na-zadnii-fon-oboi-1.jpg',
     userName: 'User Name',
@@ -55,8 +55,7 @@ export const responses = [
     data: '15.11.2023',
   },
   {
-    photoProduct:
-      'https://i.pinimg.com/736x/70/79/8e/70798e171621ddbdef745426713bae1d.jpg',
+    photoProduct: 'https://www.imgonline.com.ua/examples/bee-on-daisy.jpg',
     photoUser:
       'https://celes.club/uploads/posts/2022-11/1667297426_1-celes-club-p-kartinka-na-zadnii-fon-oboi-1.jpg',
     userName: 'User Name',
