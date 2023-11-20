@@ -1,7 +1,6 @@
 import { responses } from './response.js';
 
 const card = document.querySelector('.card');
-const slider = document.querySelector('.slider');
 
 export const activeCard = { value: 1 };
 
@@ -49,11 +48,10 @@ function renderResponses(data, position) {
           </div>
           <div>
             <div class="wrapper_response">
-                <p class="card_response" >
+                <div class="card_response" >
                  <span data-full-text="${data.response}"> ${responseText} </span> ${seeMoreButton}
-                </p>
-               
-              </div>
+                </div>
+            </div>
               <p class="card_data">${data.data}</p>
           </div>
         </div>
@@ -66,12 +64,7 @@ renderResponses(responses[activeCard.value], 'afterbegin');
 
 card.addEventListener('click', function (ev) {
   const element = ev.target;
-  console.log('element: ', element);
 
-  console.log(
-    'element.classList.contains ',
-    element.classList.contains('card_button')
-  );
   if (element.classList.contains('card_button')) {
     const responseTextElement = element.previousElementSibling;
     const fullText = responseTextElement.getAttribute('data-full-text');
