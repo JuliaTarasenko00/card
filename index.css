@@ -165,11 +165,7 @@ button svg {
   flex-direction: row-reverse;
 }
 .card_button {
-  position: absolute;
-  bottom: -4px;
   cursor: pointer;
-  border: none;
-  background-color: transparent;
   color: #80808085;
   height: max-content;
   font-size: 0.67rem;

@@ -11,8 +11,7 @@ function renderResponses(data, position) {
 
   if (responseText.length >= 185) {
     responseText = responseText.substring(0, 185) + '...';
-    seeMoreButton =
-      '<button type="button" class="card_button">See more</button>';
+    seeMoreButton = '<span class="card_button">See more</span>';
   }
 
   const markup = `<div class="card_item">
@@ -50,10 +49,10 @@ function renderResponses(data, position) {
           </div>
           <div>
             <div class="wrapper_response">
-                <p class="card_response" data-full-text="${data.response}">
-                  ${responseText} 
+                <p class="card_response" >
+                 <span data-full-text="${data.response}"> ${responseText} </span> ${seeMoreButton}
                 </p>
-                ${seeMoreButton}
+               
               </div>
               <p class="card_data">${data.data}</p>
           </div>
@@ -67,7 +66,12 @@ renderResponses(responses[activeCard.value], 'afterbegin');
 
 card.addEventListener('click', function (ev) {
   const element = ev.target;
+  console.log('element: ', element);
 
+  console.log(
+    'element.classList.contains ',
+    element.classList.contains('card_button')
+  );
   if (element.classList.contains('card_button')) {
     const responseTextElement = element.previousElementSibling;
     const fullText = responseTextElement.getAttribute('data-full-text');
