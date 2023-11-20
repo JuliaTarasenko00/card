@@ -1,8 +1,9 @@
 import { responses } from './response.js';
 
 const card = document.querySelector('.card');
+const slider = document.querySelector('.slider');
 
-export let activeCard = { value: 1 };
+export const activeCard = { value: 1 };
 
 function renderResponses(data, position) {
   let responseText = data.response;
@@ -50,7 +51,7 @@ function renderResponses(data, position) {
           <div>
             <div class="wrapper_response">
                 <p class="card_response" data-full-text="${data.response}">
-                  ${responseText}
+                  ${responseText} 
                 </p>
                 ${seeMoreButton}
               </div>
@@ -76,10 +77,12 @@ card.addEventListener('click', function (ev) {
       responseTextElement.textContent = fullText;
       element.textContent = 'See less';
       item.style.setProperty('--height', 'auto');
+      item.dataset.open = 'open';
     } else {
       responseTextElement.textContent = fullText.substring(0, 185) + '...';
       element.textContent = 'See more';
       item.style.removeProperty('--height');
+      delete item.dataset.open;
     }
   }
 });
@@ -104,4 +107,5 @@ export function prevCard() {
 
   renderResponses(responses[prevCard], 'afterbegin');
 }
+
 prevCard();

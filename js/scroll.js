@@ -49,6 +49,7 @@ function nextSlide() {
     activeCard.value = 0;
   }
   const element = document.querySelector('.card_item');
+  hideInformation();
 
   slideCard(-1, element);
 }
@@ -60,20 +61,37 @@ function prevSide() {
     activeCard.value = responses.length - 1;
   }
   const element = document.querySelector('.card_item:last-child');
+  hideInformation();
 
   slideCard(1, element);
 }
 
 function slideCard(direction, element) {
-  element.style.transform = `translateX(${
-    direction * (firstCardWidth + 20)
-  }px)`;
-
   if (timeout) {
     clearTimeout(timeout);
   }
   timeout = setTimeout(function () {
     direction === -1 ? nextCardGenerate() : prevCard();
     return element.remove();
-  }, 300);
+  }, 500);
+  return (element.style.transform = `translateX(${
+    direction * (firstCardWidth + 20)
+  }px)`);
+}
+
+export function hideInformation() {
+  const cardFullInformation = document.querySelector(
+    '.card_item[data-open="open"]'
+  );
+
+  if (cardFullInformation) {
+    const button = cardFullInformation.querySelector('.card_button');
+    const responseTextElement = button.previousElementSibling;
+    responseTextElement.textContent =
+      responseTextElement.getAttribute('data-full-text').substring(0, 185) +
+      '...';
+    button.textContent = 'See more';
+    cardFullInformation.style.removeProperty('--height');
+    delete cardFullInformation.dataset.open;
+  }
 }
